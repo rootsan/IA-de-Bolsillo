@@ -56,7 +56,7 @@ Para que el taller funcione de manera óptima, el entorno de desarrollo debe con
 Históricamente, la IA generativa dependía de enormes centros de datos y APIs en la nube (como OpenAI o Anthropic). Hoy, gracias a la cuantización y la optimización de arquitecturas, tenemos **SLMs (Small Language Models)**.
 
 *   **LLM vs SLM:** Mientras que un modelo como GPT-4 tiene billones de parámetros y requiere clústeres de GPUs, modelos como Qwen 2.5 (0.5B) o Llama 3.2 (1B) están diseñados para correr en la CPU de una laptop estándar.
-*   **¿Por qué Podman y no Docker?:** En la UTM promovemos las mejores prácticas de seguridad y eficiencia. Podman es *daemonless* (no hay un proceso corriendo siempre de fondo consumiendo RAM) y *rootless* (no requiere permisos de superusuario), lo que lo hace perfecto para nuestro entorno académico.
+*   **¿Por qué Podman y no Docker?:** El autor de este taller promueve las mejores prácticas de seguridad y eficiencia. Podman es *daemonless* (no hay un proceso corriendo siempre de fondo consumiendo RAM) y *rootless* (no requiere permisos de superusuario), lo que lo hace perfecto para nuestro entorno académico.
 *   **La Arquitectura de hoy:**
     `Tu App en Rust` ↔️ `Petición HTTP (JSON)` ↔️ `Contenedor Podman (Ollama)` ↔️ `Modelo SLM`
 
