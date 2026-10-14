@@ -90,14 +90,9 @@ podman run -d \
 ```bash
 podman exec -it ollama_slim ollama run qwen2.5:0.5b "Dime un chiste corto de programadores."
 ```
-***Paso 4: Validar la API local con curl:**
+**Paso 4: Validar la API local con curl:**
 ```bash
-curl -s [http://127.0.0.1:11434/api/generate](http://127.0.0.1:11434/api/generate) -d '{
-  "model": "qwen2.5:0.5b",
-  "prompt": "ping al localhost",
-  "stream": false,
-  "system": "Devuelve solo el comando bash exacto"
-}'
+curl -v -X POST http://127.0.0.1:11434/api/generate -H "Content-Type: application/json" -d '{"model": "qwen2.5:0.5b", "prompt": "Crear un archivo", "stream": false}'
 ```
 ### 🦀 Módulo 3: Construcción del Asistente CLI en Rust (Arquitectura TCP Stream) (75 min)
 Para evitar incompatibilidades de versiones con crates.io, clientes HTTP pesados o runtimes asíncronos que incrementan el tiempo de compilación, el asistente se comunica con Ollama utilizando sockets TCP directos (std::net::TcpStream) provistos por la biblioteca estándar de Rust, dejando únicamente serde para la manipulación de JSON.
